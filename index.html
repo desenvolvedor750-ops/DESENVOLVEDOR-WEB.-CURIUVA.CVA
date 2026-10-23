@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="JR TECH Desenvolvimento Web. Sites profissionais, landing pages, aplicativos web e soluções digitais personalizadas. Solicite seu orçamento.">
+  <title>JR TECH | Desenvolvimento Web</title>
+  <style>
+    :root{--gold:#f8c52e;--gold2:#ffdf70;--black:#080808;--panel:#111315;--white:#f8f8f8;--muted:#c8c8c8}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--black);color:var(--white);font-family:Inter,Arial,Helvetica,sans-serif;font-size:clamp(15px,1.2vw,16px);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1160px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(248,197,46,.35)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-family:Georgia,"Times New Roman",serif;font-size:1.6rem;font-weight:700;letter-spacing:.5px;color:#fff}
+    .brand span{color:var(--gold)}
+    nav{display:flex;align-items:center;gap:25px}
+    nav a{font-size:.94rem;color:#eee;transition:.2s}
+    nav a:hover{color:var(--gold)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:clamp(11px,1vw,13px) clamp(14px,1.6vw,20px);border-radius:9px;background:linear-gradient(135deg,var(--gold2),#e9a900);color:#111;font-size:clamp(.9rem,1.1vw,1rem);font-weight:800;text-align:center;border:0;cursor:pointer;transition:transform .2s,filter .2s}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .btn-outline{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+    .menu-toggle{display:none;background:none;border:1px solid #444;color:white;border-radius:8px;padding:8px 12px;font-size:1.2rem}
+    .hero{position:relative;overflow:hidden;padding:16px 0 0;background:#080808}
+    .hero:before{content:"";position:absolute;inset:0;pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1fr;align-items:center;gap:28px;position:relative}
+    .eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:clamp(1px,.25vw,3px);font-size:clamp(.7rem,1vw,.8rem);font-weight:800}
+    h1{font-size:clamp(2.5rem,5.5vw,5rem);line-height:1.03;letter-spacing:-2px;margin:16px 0 20px}
+    h1 span{color:var(--gold)}
+    .hero p{font-size:clamp(.95rem,1.45vw,1.12rem);color:#d2d2d2;max-width:570px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:27px}
+    .hero-note{margin-top:20px;color:#aaa;font-size:.9rem}
+    .hero-image{grid-column:1/-1;order:-1;position:relative;width:100vw;margin-left:calc(50% - 50vw)}
+    .hero-image img{display:block;width:100%;height:auto;aspect-ratio:auto;border:0;border-radius:0;box-shadow:none;object-fit:contain;background:transparent}
+    section{padding:clamp(52px,6.5vw,76px) 0}
+    .section-head{text-align:center;max-width:720px;margin:0 auto 38px}
+    .section-head h2{font-size:clamp(1.75rem,4vw,3rem);line-height:1.15;margin:10px 0}
+    .section-head p{color:var(--muted);margin:0}
+    .gold{color:var(--gold)}
+    .services{background:#0d0e0f}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+    .card{padding:25px 22px;background:linear-gradient(145deg,#17191b,#0c0d0e);border:1px solid #292929;border-radius:14px;transition:.25s}
+    .card:hover{transform:translateY(-5px);border-color:var(--gold)}
+    .icon{width:48px;height:48px;display:grid;place-items:center;border-radius:12px;background:rgba(248,197,46,.12);color:var(--gold);font-size:1.55rem;margin-bottom:18px}
+    .card h3{margin:0 0 9px;font-size:clamp(1.05rem,1.45vw,1.2rem)}
+    .card p{margin:0;color:#bdbdbd;font-size:clamp(.9rem,1.15vw,.95rem)}
+    .contact{background:linear-gradient(135deg,#17140b,#0a0a0a 55%,#151006)}
+    .contact-box{max-width:850px;margin:auto;text-align:center;padding:40px 25px;border:1px solid rgba(248,197,46,.4);border-radius:18px;background:rgba(0,0,0,.45)}
+    .contact-box h2{font-size:clamp(1.75rem,4vw,3rem);line-height:1.15;margin:10px 0}
+    .contact-box p{color:#ccc}
+    .contact-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
+    footer{padding:28px 0;border-top:1px solid #28251c;background:#050505;color:#aaa;font-size:.9rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}
+    .footer-brand{font-weight:900;font-size:1.2rem;color:white}.footer-brand span{color:var(--gold)}
+    .whatsapp-float{position:fixed;right:20px;bottom:20px;z-index:30;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:#20c967;color:#fff;font-size:1.85rem;box-shadow:0 5px 25px #0009;border:2px solid #fff5;transition:.2s}
+    .whatsapp-float:hover{transform:scale(1.07)}
+    .whatsapp-float svg{width:31px;height:31px;fill:currentColor}
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:26px}.hero-image{order:-1;width:100%;max-width:800px;margin:0 auto}.hero-copy{text-align:center}.hero-copy p{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.cards{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:760px){.nav{min-height:66px}.menu-toggle{display:block}nav{display:none;position:absolute;top:66px;left:0;right:0;padding:12px 4%;background:#080808;border-bottom:1px solid #5e4b18;flex-direction:column;align-items:stretch;gap:0}nav.open{display:flex}nav a{padding:12px 0;border-bottom:1px solid #222}.nav>.btn{display:none}}
+    @media(max-width:560px){.container{width:min(100% - 32px,1160px)}.hero{padding:16px 0 28px}.hero-grid{gap:24px}.eyebrow{font-size:clamp(.68rem,3vw,.72rem);letter-spacing:clamp(1px,.35vw,2px)}h1{font-size:clamp(2rem,9vw,3rem);letter-spacing:-1px;margin:12px 0}.hero p{font-size:clamp(.94rem,4vw,1rem)}.hero-actions{gap:10px;margin-top:20px}.hero-actions .btn,.contact-actions .btn{width:100%}section{padding:48px 0}.section-head{margin-bottom:26px}.section-head h2,.contact-box h2{font-size:clamp(1.65rem,7.5vw,1.9rem)}.cards{grid-template-columns:1fr;gap:12px}.card{padding:19px}.icon{margin-bottom:12px}.contact-box{padding:28px 18px}.contact-actions{gap:10px}.footer-inner{align-items:flex-start;flex-direction:column;gap:10px}.whatsapp-float{right:14px;bottom:14px;width:54px;height:54px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio" aria-label="JR TECH início"><span>JR</span> TECH</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">☰</button>
+    <nav id="mainNav" aria-label="Menu principal">
+      <a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#contato">Contato</a>
+    </nav>
+    <a class="btn" href="https://wa.me/5543996718038?text=Ol%C3%A1%2C%20quero%20solicitar%20um%20or%C3%A7amento%20com%20a%20JR%20TECH." target="_blank" rel="noopener">Falar no WhatsApp ↗</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Sua ideia, nosso código, seu sucesso</div>
+        <h1>Seu negócio merece um <span>site incrível.</span></h1>
+        <p>Sites profissionais e soluções web sob medida para o seu negócio.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://wa.me/5543996718038?text=Ol%C3%A1%2C%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20site." target="_blank" rel="noopener">✆ Solicitar orçamento</a>
+          <a class="btn btn-outline" href="#servicos">Conhecer serviços ↓</a>
+        </div>
+        <div class="hero-note">Atendimento regional e online · Curiúva – PR</div>
+      </div>
+      <div class="hero-image">
+        <img src="FOTO.PNG.png" alt="Banner da JR TECH com serviços de desenvolvimento web e contato">
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="servicos">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">O que fazemos</div>
+        <h2>Soluções digitais para <span class="gold">crescer</span></h2>
+        <p>Soluções digitais para apresentar sua empresa e facilitar o contato com seus clientes.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="icon">◎</div><h3>Sites profissionais</h3><p>Apresente sua empresa, serviços e formas de contato.</p></article>
+        <article class="card"><div class="icon">⌘</div><h3>Landing pages</h3><p>Divulgue campanhas e receba novos contatos.</p></article>
+        <article class="card"><div class="icon">▣</div><h3>Aplicativos web</h3><p>Sistemas personalizados para as rotinas do seu negócio.</p></article>
+        <article class="card"><div class="icon">⚙</div><h3>Manutenção e suporte</h3><p>Atualizações e apoio técnico para seu site.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contato">
+    <div class="container">
+      <div class="contact-box">
+        <div class="eyebrow">Vamos tirar sua ideia do papel?</div>
+        <h2>Pronto para criar seu <span class="gold">próximo site?</span></h2>
+        <p>Conte sua ideia e solicite um orçamento sem compromisso.</p>
+        <div class="contact-actions">
+          <a class="btn" href="https://wa.me/5543996718038?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JR%20TECH%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">✆ Solicitar orçamento no WhatsApp</a>
+          <a class="btn btn-outline" href="tel:+5543996718038">☎ Ligar agora</a>
+        </div>
+        <p style="margin-top:22px">Curiúva – PR · Atendimento regional e online</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand"><span>JR</span> TECH <span style="font-weight:400;color:#aaa;font-size:.9rem">Desenvolvimento Web</span></div>
+    <div>© <span id="year"></span> JR TECH. Todos os direitos reservados.</div>
+    <a href="https://wa.me/5543996718038" target="_blank" rel="noopener">WhatsApp: (43) 99671-8038</a>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/5543996718038?text=Ol%C3%A1%2C%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20da%20JR%20TECH." target="_blank" rel="noopener" aria-label="Falar com a JR TECH pelo WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 .8A15 15 0 0 0 3.1 23.5L1 31l7.7-2A15.1 15.1 0 1 0 16 .8zm0 27.4c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.6 1.2 1.2-4.5-.3-.5A12.3 12.3 0 1 1 16 28.2zm6.8-9.2c-.4-.2-2.2-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.4-.2.3-.5.3-.9.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.3 0-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.8 4.3 6.8 6 .9.4 1.6.6 2.1.7.9.3 1.8.2 2.4.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/></svg>
+</a>
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mainNav = document.getElementById('mainNav');
+  menuToggle.addEventListener('click', () => {
+    const opened = mainNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(opened));
+    menuToggle.textContent = opened ? '✕' : '☰';
+  });
+  mainNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.textContent = '☰';
+  }));
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
